@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="draggable.js"></script>
+    <script src="promiselabcode.js"></script>
+    <link rel="stylesheet" type="text/css" href="rainbow.css">
+    <title>PromisesLab</title>
+
+    <style>
+        .topspace{
+            display: flex;
+            justify-content: center;
+        }
+        /*  Use flexbox to arrange items in the display area
+            Wrap rows
+            Distribute rows with space between
+            Space items within rows evenly
+        */
+        .displayarea{
+            width: 50%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*  Set a circle with size.
+            Set position absolute for draggable.
+        */
+        .displaycircle{
+            color: black;
+            border-radius: 50%;
+            min-height: 150px;
+            min-width: 150px;
+            font-size: larger;
+        }
+
+        .search{
+            border-radius: 8px;
+            padding: 14px 20px;
+            text-align: center;
+            background-color: blue;
+            border: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="topspace">
+        <button class="search" onclick = "search()">Call My Promises</button>
+    </div>
+    <hr>
+    <div>
+        <div class="displayarea"></div>
+    </div>
+
+</body>
+</html>
