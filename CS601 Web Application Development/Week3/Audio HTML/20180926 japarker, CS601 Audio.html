@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Epic Music Page</title>
+    <link href="http://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" />
+    <style>
+        body{
+            font-family: 'Arimo', sans-serif;
+        }
+
+        /*Audio control size setting is not allowed by validator.*/
+        audio{
+            width: 250px;
+        }
+
+        /*Some things just look better in the middle.*/
+        .center{
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <audio controls>
+            <source src="epic.mp3" type="audio/mp3" />
+            Sorry, your browswer doesn't support embedded audio files.
+        </audio>
+    </div>
+</body>
+</html>
