@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Homework, Week 2 - Tables, Lists and Headers</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        .centerborder {
+            margin: auto;
+            text-align: center;
+            border: 3px solid blue;
+            padding: 10px;
+        }
+
+        .lired{color: red;}
+        .liorg{color:orange;}
+        .liyel{color: yellow;}
+        .ligrn{color: green;}
+        .liblu{color: blue;}
+        .liind{color: indigo;}
+        .livio{color:violet;}
+    </style>
+</head>
+<body>
+
+    <!--List of favorite dogs with links to an image of each.-->
+    <div class="centerborder">Next Section: My favorite dogs (which are CATS!)</div><br />
+    <ol>
+        <li><a href="http://elelur.com/data_images/cat-breeds/ragdoll-cat/ragdoll-cat-07.jpg">Ragdoll</a></li>
+        <li><a href="https://www.thehappycatsite.com/wp-content/uploads/2018/01/tortie-cat.jpg">Tortoishell</a></li>
+        <li><a href="https://www.nobleandroyal.com/wp-content/uploads/2018/02/Bengal-Kedisi-Hakk%C4%B1nda-Bilgi2-1-500x405.jpg">Bengal</a></li>
+        <li><a href="https://ksassets.timeincuk.net/wp/uploads/sites/55/2018/01/Grumpy-Cat-920x584.jpg">Grumpy</a></li>
+        <li><a href="https://i.pinimg.com/originals/e4/45/2c/e4452cc8ef5d6dac58d8b0b0aa290ac8.jpg">In Hat</a></li>
+    </ol>
+    <!--List of colors, each color written in the indicated color.-->
+    <div class="centerborder">Next Section: COLORS &#127752;!</div><br />
+    <ul>
+        <li class="lired">blood</li>
+        <li class="liorg">juice</li>
+        <li class="liyel">lemonade</li>
+        <li class="ligrn">grass</li>
+        <li class="liblu">sky</li>
+        <li class="liind">jeans</li>
+        <li class="liind">lilac</li>
+    </ul>
+
+    <!--Table of the Red Sox team roster with players, numbers and poositions.-->
+    <!--Red Sox roster from http://www.espn.com/mlb/team/roster/_/name/bos/bostn-red-sox.-->
+    <div class="centerborder">Next Section: The Sox!</div><br />
+    <table>
+        <thead>
+            <tr><th>NO.</th><th>NAME</th><th>POS</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>32</td><td>Matt Barnes</td><td>RP</td></tr>
+            <tr><td>70</td><td>Ryan Brasier</td><td>RP</td></tr>
+            <tr><td>67</td><td>William Cuevas</td><td>SP</td></tr>
+            <tr><td>17</td><td>Nathan Eovaldi</td><td>SP</td></tr>
+            <tr><td>37</td><td>Heath Hembree</td><td>RP</td></tr>
+            <tr><td>61</td><td>Brian Johnson</td><td>SP</td></tr>
+            <tr><td>56</td><td>Joe Kelly</td><td>RP</td></tr>
+            <tr><td>46</td><td>Craig Kimbrel</td><td>RP</td></tr>
+            <tr><td>31</td><td>Drew Pomeranz</td><td>SP</td></tr>
+            <tr><td>22</td><td>Rick Porcello</td><td>SP</td></tr>
+            <tr><td>66</td><td>Bobby Poyner</td><td>RP</td></tr>
+            <tr><td>24</td><td>David Price</td><td>SP</td></tr>
+            <tr><td>57</td><td>Eduardo Rodriguez</td><td>SP</td></tr>
+            <tr><td>41</td><td>Chris Sale</td><td>SP</td></tr>
+            <tr><td>63</td><td>Robby Scott</td><td>RP</td></tr>
+            <tr><td>47</td><td>Tyler Thornburg</td><td>RP</td></tr>
+            <tr><td>76</td><td>Hector Velazquez</td><td>SP</td></tr>
+            <tr><td>44</td><td>Brandon Workman</td><td>RP</td></tr>
+            <tr><td>35</td><td>Steven Wright</td><td>SP</td></tr>
+            <tr><td>3</td><td>Sandy Leon</td><td>C</td></tr>
+            <tr><td>23</td><td>Blake Swihart</td><td>C</td></tr>
+            <tr><td>7</td><td>Christian Vazquez</td><td>C</td></tr>
+            <tr><td>2</td><td>Xander Bogaerts</td><td>SS</td></tr>
+            <tr><td>11</td><td>Rafael Devers</td><td>3B</td></tr>
+            <tr><td>12</td><td>Brock Holt</td><td>2B</td></tr>
+            <tr><td>5</td><td>Ian Kinsler</td><td>2B</td></tr>
+            <tr><td>30</td><td>Tzu-Wei Lin</td><td>SS</td></tr>
+            <tr><td>18</td><td>Mitch Moreland</td><td>1B</td></tr>
+            <tr><td>36</td><td>Eduardo Nunez</td><td>3B</td></tr>
+            <tr><td>0</td><td>Brandon Phillips</td><td>2B</td></tr>
+            <tr><td>59</td><td>Sam Travis</td><td>1B</td></tr>
+            <tr><td>16</td><td>Andrew Benintendi</td><td>LF</td></tr>
+            <tr><td>50</td><td>Mookie Betts</td><td>RF</td></tr>
+            <tr><td>19</td><td>Jackie Bradley Jr.</td><td>CF</td></tr>
+            <tr><td>28</td><td>J.D. Martinez</td><td>RF</td></tr>
+            <tr><td>25</td><td>Steve Pearce</td><td>LF</td></tr>
+        </tbody>
+    </table><br />
+
+    <!--Header example, showing all six headers.-->
+    <div class="centerborder">Next Section: HEADERS!</div>
+    <h1>This is header 1, it's so big</h1>
+    <h2>This is header 2, a little less dramatic</h2>
+    <h3>This is header 3, kind of not a big deal</h3>
+    <h4>This is header 4, it's bold but not so spicy</h4>
+    <h5>This is header 5, nuff said</h5>
+    <h6>This is header 6, kind of small to be a header</h6>
+</body>
+</html>

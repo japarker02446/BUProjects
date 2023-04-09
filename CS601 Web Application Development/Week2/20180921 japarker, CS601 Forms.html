@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Homework Week 2, Forms 1</title>
+    <style>
+        /*Background color:
+            The background color is actually a subtle angled gradient.
+            See https://css-tricks.com/perfect-full-page-background-image/ for solution.
+        */
+        html {
+            background: linear-gradient(to bottom left, lightblue, deepskyblue) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Make all the body text white, Arial > Helvetica > sans-serif was the allowed font family.*/
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        /*
+            Use divs inside divs to align the elements of the form rows
+            Ref: https://www.quora.com/I-want-to-put-tow-divs-in-HTML-in-the-same-line-but-one-always-comes-under-the-other-one-What-should-I-do
+        */
+        .inline {
+            width: 60%;
+            display: flex;
+            margin: 10px;
+        }
+
+        .label {
+            width: 165px;
+            min-width: 18%;
+            display: inline-block;
+        }
+        .onebig {
+            width: 100%;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .onemed {
+            width: 80%;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .two {
+            width: 50%;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .three {
+            width: 33%;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        /*The actual form elements are 100% of their parent div*/
+        input {
+            height: 30px;
+            width: 100%;
+        }
+
+        select{
+            height: 34px;
+            max-width: 66.3%;
+        }
+
+        textarea{
+            width: 100%;
+        }
+
+        .button{
+            background-color:deepskyblue;
+            border: 1px solid white;
+            color: white;
+            padding: 14px 40px;
+            text-align: center;
+            font-size: 20px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>Contact form</h1>
+    <p>Please fill in your information and we'll be sending your order in no time.</p>
+    <br />
+    <br />
+    <form action="POST">
+
+        <div class="inline">
+            <div class="label"><label>Your Name</label></div>
+            <div class="two"><input type="text" placeholder="First Name" name="firstName" /></div>
+            <div class="two"><input type="text" placeholder="Last Name" name="lastName" /></div>
+        </div>
+        <div class="inline">
+            <div class="label"><label>Your Email</label></div>
+            <div class="onebig"><input type="email" placeholder="e.g. hello@contact.net" name="email" /></div>
+        </div>
+        <div class="inline">
+            <div class="label"><label>Phone*</label></div>
+            <div class="three"><input type="text" maxlength="3" required placeholder="###" name="phoneArea" /></div>
+            <div class="three"><input type="text" maxlength="3" required placeholder="###" name="phonePre" /></div>
+            <div class="three"><input type="text" maxlength="4" required placeholder="###" name="phoneSuff" /></div>
+        </div>
+        <div class="inline">
+            <div class="label"><label>Message Subject*</label></div>
+            <div class="onemed">
+                <select name="msgSubject" required style="width:650px" size="3">
+                    <option value="Other">Other</option>
+                    <option value="New">New Order</option>
+                    <option value="Question">Question</option>
+                </select>
+            </div>
+        </div>
+        <div class="inline">
+            <div class="label"><label style="vertical-align:top">Message*</label></div>
+            <div class="onebig">
+                <textarea name="msg" required rows="6" cols="135"></textarea>
+            </div>
+        </div>
+    </form>
+    <!--Insert attempted recaptcha here, but not paying $25 for Google Developer account right now to make it functional.-->
+
+    <form action="?" method="post">
+        <div class="inline">
+            <div class="label" style="vertical-align:top"><label>Verification*</label></div>
+            <div class="onebig">
+                <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+            </div>
+        </div>
+    </form>
+
+    <hr style="color:white" />
+    <button class="button">SUBMIT FORM</button>
+</body>
+</html>
