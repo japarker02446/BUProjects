@@ -1,0 +1,27 @@
+{
+  "name": "dietminder",
+  "version": "1.0.0",
+  "description": "Application to allow the user to track foods and calories consumed by date.",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "diet time!",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "build": "webpack"
+  },
+  "author": "Jefferson Parker",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "lite-server": "^2.4.0",
+    "typescript": "^3.1.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.22",
+    "common-js": "^0.3.8",
+    "jquery": "^3.3.1"
+  }
+}

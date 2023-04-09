@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DietMinder</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: whitesmoke;
+            }
+            
+            button {
+                padding: 20px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--DietMinder Data Entry Section-->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="fooditem">Food Item</label>
+                </div>
+                <div class="col">
+                    <label for="foodcalories">Calories</label>
+                </div>
+                <div class="col">
+                    <label for="fooddate">Date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="fooditem" class="form-control" name="fooditem">
+                </div>
+                <div class="col">
+                    <input type="number" max="6000" id="foodcalories" class="form-control" name="foodcalories">
+                </div>
+                <div class="col">
+                        <input type="date" id="fooddate" class="form-control" name="fooddate">
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="pbutton"><button class="btn btn-primary" id="btnsubmit">SUBMIT</button></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!--DietMinder Display Section-->
+        <!--
+            The contents of the diet item array needs to be displayed in rows with an edit and delete button for each entry.
+            Somehow associate the button with the item row.
+        -->
+        <div class="container" id = display>
+
+            <!-- foreach element in the array, I want to display a row, each with an EDIT and DELETE button
+                The buttons should capture the INDEX of the array element and pass it for editing or deleting
+                from the array...
+
+                yeah, that doesn't work either...
+            -->
+                <div class="row">
+                    <button class="btn btn-primary" id="btnedit">EDIT</button>
+                    <button class="btn btn-primary" id="butndelete">DELETE</button>
+            </div>
+        </div>
+        
+        <!-- JavaScript for Bootstrap components -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        
+        <!-- Application JavaScript -->
+        <script src="./src/app.js"></script>
+    </body>
+</html>
