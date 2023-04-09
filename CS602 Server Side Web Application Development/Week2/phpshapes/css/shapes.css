@@ -1,0 +1,19 @@
+.input{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+.image{
+    float: right;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

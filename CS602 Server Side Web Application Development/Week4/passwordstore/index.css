@@ -1,0 +1,18 @@
+html{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+input{
+    padding: 8px 20px;
+    border-radius: 8px;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    text-align: center;
+}

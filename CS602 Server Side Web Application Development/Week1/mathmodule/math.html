@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Math Module Page</title>
+
+    <script>
+        // Only modulo needs two input numbers.
+        $(document).ready(function(){ $("#calcvalue2").hide();});
+        updateselection = function(selection){
+            if(selection == "mod"){$("#calcvalue2").show();}
+        }   
+    </script>
+    
+    <script type="module">
+        import {ceiling, cube, floor, mod, squareRoot} from "./mathmodule.mjs";
+
+        $(() => {
+            $("button").on("click", event => {               
+
+                const number1  = document.getElementById("calcvalue1").value;
+                const number2  = document.getElementById("calcvalue2").value;
+                let result = "";
+
+                switch (document.getElementById("operationselect").value) {
+                    case "ceiling": 
+                        result = ceiling(number1);
+                        break;
+                    case "floor": 
+                        result = floor(number1);
+                        break;
+                    case "cube": 
+                        result = cube(number1);
+                        break;
+                    case "mod":
+                        result = ceiling(number1, number2);
+                        break;
+                    case "squareRoot": 
+                        result = squareRoot(number1);
+                        break;
+                    default:
+                        result = "No operator indicated.";
+                }
+                document.getElementById("display").innerText = result;
+            });
+        })
+    </script>
+</head>
+<body>
+    <h1>Please enter a value and select an operation to execute</h1>
+    <!--Use javascript:void(0) to prevent page reloading on form submit.-->
+    <form action = "javascript:void(0);">
+        <div id="searchform">
+            <input type="number" step ="any" id="calcvalue1" placeholder="number 1"/>
+            <input type="number" step ="any" id="calcvalue2" placeholder="number 2"/>
+            <select id = "operationselect" onchange =updateselection(this.value)>
+                <option value="ceiling">Round UP</option>
+                <option value="floor">Round DOWN</option>
+                <option value="cube">Cube</option>
+                <option value="mod">Modulo</option>
+                <option value="squareRoot">Square Root</option>
+            </select>
+            <button>Calculate Result</button>
+        </div>
+    </form>
+    <hr>
+    <div id="display"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+    {
+        "route_id" : 1,
+        "name" : "Sushi Corner",
+        "location" : "18 Essex St, Melrose, MA 02176",
+        "caption" : "The Best Sushi",
+        "review" : "This place is owned my Mom and Dad.  And, this is their life.  It's the best!"
+    },
+    {
+        "route_id" : 2,
+        "name" : "Cappa's Trackside Kitchen",
+        "location": "1 Grove St, Melrose, MA 02176",
+        "caption": "Piles of Food",
+        "review": "When I am hungry, I go there.  I can never finish my plate. Small place, but the people there are friendly, and awesome."
+    },
+    {
+        "route_id": 3,
+        "name": "Mexico Lindo",
+        "location": "449 Main St, Melrose, MA 02176",
+        "caption": "Good, Authentic Mexican food",
+        "review": "So real the servers barely speak english."
+    }
+]

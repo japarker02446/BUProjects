@@ -1,0 +1,16 @@
+{
+  "name": "passwordserver",
+  "version": "1.0.0",
+  "description": "Password store app backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'This thing is on'"
+  },
+  "author": "Jefferson Parker",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.4",
+    "cors": "2.8.5",
+    "express-session": "1.15.6"
+  }
+}

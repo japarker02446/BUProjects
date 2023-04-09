@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Temperature Conversion</title>
+</head>
+<body>
+    <h1>Temperature Conversion</h1>
+    <form action="calcTemperature.php" method="GET">
+        <div id="input">
+            <label>Temperature</label>
+            <input type="number" step ="any" name="tempvalue" placeholder="Value">
+            <label>Units</label>
+            <select name="tempunit">
+                <option value="F">Fahrenheit</option>
+                <option value="C">Celsius</option>
+                <option value="K">Kelvin</option>
+            </select>
+        </div>
+        <div id="button">
+            <input type="submit" value="Convert">
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/passwordstore.js"></script>
+    <script src="./js/addpassword.js"></script>
+    <script src="./js/editpassword.js"></script>
+    <script src="./js/deletepassword.js"></script>
+    <script src="./js/showall.js"></script>
+    <script src="./js/viewpassword.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>Password Store</title>
+</head>
+<body>
+    <div>
+        <div><h1>Password Store</h1></div>
+        <div><p>A place to store sites and passwords, unsecurely</p></div>
+        <div><hr></div>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <th>Site</th>
+                <th class="hideme">Password</th>
+                <th class="hideme">OldPassword</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody id="display"></tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+    <hr>
+    <div>
+        <form id="passinput" action="javascript:void(0);">
+            <label>ENTER A NEW SITE AND PASSWORD HERE</label>
+            <input type=text id="nextKeyValue" placeholder="SITE"/>
+            <input type=password id="nextPassword" placeholder="PASSWORD"/>
+            <button onclick="addpassword()">SUBMIT</button>
+        </form>
+        <form id="editinput" action="javascript:void(0);">
+                <label>EDIT A SITE PASSWORD HERE</label>
+                <input type=text id="editKeyValue" disabled/>
+                <input type=password id="editPassword"/>
+                <button onclick="submitedit()">SUBMIT</button>
+            </form>
+    </div>
+    <hr>
+    <label>SEE ALL PASSWORDS</label>
+    <button onclick="showall()">VIEW ALL</button>
+</body>
+</html>
