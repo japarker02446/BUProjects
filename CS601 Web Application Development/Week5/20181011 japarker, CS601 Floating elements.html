@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Floating Elements</title>
+
+    <style>
+        .main-content{
+            max-width: 100%;
+            width: 500px;
+            height: 50vh;
+        }
+
+        #right{
+            float: right;
+            background-color: darkorange;
+            width: 250px;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #left {
+            background-color: red;
+            float: left;
+            width: 250px;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #top {
+            float: right;
+            background-color: green;
+            width: 100%;
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #bottom {
+            background-color: blue;
+            float: left;
+            width: 100%;
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .break{
+            clear: both;
+            color: white;
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div id="left">Left</div>
+        <div id="right">Right</div>
+    </div>
+    <div class="break">this is a break, you can't see it</div>
+    <div class="main-content">
+        <div id="top">Top</div>
+        <div id="bottom">Bottom</div>
+    </div>
+    <div class="break">this is a break, you can't see this one too</div>
+</body>
+</html>
