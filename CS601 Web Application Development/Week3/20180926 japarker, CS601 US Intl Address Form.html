@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US to International Address Form</title>
+
+    <!--Add Pure.io CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
+    <!--Display the div 'foo' in response to check box click.-->
+    <script>
+        function intCheckFunction() {
+            let checkBox = document.getElementById("intcheck");
+            if (checkBox.checked == true) {
+                foo.style.display = "block";
+            }
+            else {
+                foo.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form class="pure-form">
+        <div>
+            <input type="text" name="Address1" placeholder="Address Line 1" />
+            <input type="text" name="Address2" placeholder="Address Line 2" />
+            <input type="text" name="city" placeholder="City" />
+            <input type="text" name="state" placeholder="State" maxlength="2" />
+            <input type="text" name="zip" placeholder="Zip Code" maxlength="5" />
+            <label for="intcheck">
+                <input type="checkbox" id="intcheck" onclick="intCheckFunction()" />International
+            </label>
+
+
+        </div>
+        <div id="foo" style="display:none">
+            <input class="intdiv" type="text" name="province" placeholder="Province" />
+            <input type="text" name="locale" placeholder="Locale" />
+            <input type="text" name="region" placeholder="Region" />
+        </div>
+    </form>
+</body>
+</html>

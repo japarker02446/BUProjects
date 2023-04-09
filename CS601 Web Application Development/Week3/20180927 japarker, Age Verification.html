@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Verification</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        p {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        function checkAge() {
+            let mVal = parseInt($("#month").val())-1;
+            let dVal = parseInt($("#day").val());
+            let yVal = parseInt($("#year").val());
+
+            let today = moment(new Date());
+            let birthday = new Date(yVal, mVal, dVal);
+            let dayDiff = today.diff(birthday);;
+
+            let day_age = Math.floor(dayDiff / 31536000000);
+            /*Testing
+            console.log("Birthday " + birthday.toString());
+            console.log("Month " + mVal.toString());
+            console.log("Day " + dVal.toString());
+            console.log("Year " + yVal.toString());
+            console.log(dayDiff);
+            console.log(day_age);
+            */
+            if (day_age >= 21) {
+                window.open("http://boomchugalug.com", "_blank");
+            }
+            else {
+                window.open("http://www.disney.com", "_blank");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p>Please enter your birthdate</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="number" id="month" class="form-control" name="month" placeholder="MM" min="01" max="12">
+            </div>
+            <div class="col">
+                <input type="number" id="day" class="form-control" name="day" placeholder="DD" min="01" max="31">
+            </div>
+            <div class="col">
+                <input type="text" id="year" class="form-control" name="year" placeholder="YYYY" maxlength="4">
+            </div>
+        </div>
+        <div class="row">
+            <p></p>
+            <p><button type="button" class="btn btn-default" id="submit" onclick="checkAge()">SUBMIT</button></p>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript for Bootleg CSS-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!--Moments library for time calculations-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+</body>
+</html>
