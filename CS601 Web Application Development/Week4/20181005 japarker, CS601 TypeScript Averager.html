@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Averager</title>
+
+    <style>
+        input {
+            text-align: center;
+        }
+        
+        p, span {
+            text-align: center;
+            width: 100%;
+        }        
+        
+        .inline {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .center {
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div>
+            <p>I will find the average of all the numbers you indicate.</p>
+            <p><input type="text" id="enterVal" style="border:solid" placeholder="enter value here" /></p>
+        </div>
+        <div class="inline">
+            <button id="addVal" onclick="addVal()">Add Value</button>
+            <button id="getAvg" onclick="getAvg()">Get Average</button>
+            <button id="reset" onclick="reset()">Reset</button>
+        </div>
+        <p id="display"></p>
+    </div>
+
+    <script>
+        // Set document level variables outside of the control functions to expose them.
+        window.onload = function () {
+
+            let valueArray = new Array();
+            let displayArea = document.getElementById("display");
+
+            /*
+             * Get the next number and add it to our array of numbers.
+             * Display the list of current numbers in the array.
+             * Reset the input field for the next number.
+             */
+            addVal = function () {
+                let nextVal = document.getElementById("enterVal");
+                let nextNum = nextVal.value;
+                valueArray.push(nextNum);
+                if (valueArray.length === 1) {
+                    displayArea.innerHTML = "Your values: " + nextNum;
+                } else {
+                    displayArea.innerHTML = displayArea.innerHTML + ", " + nextNum;
+                }
+                nextVal.value = '';
+            }
+
+            /*
+             * Calculate and display the current average. 
+             */
+            getAvg = function () {
+                let sum = 0;
+                let arrAvg = 0;
+                if (valueArray.length > 0) {
+                    for (let i = 0; i < valueArray.length; i++) {
+                        sum = sum + Number(valueArray[i]);
+                    }
+                    arrAvg = sum / valueArray.length;
+                }
+                displayArea.innerHTML = "Your average is " + arrAvg.toFixed(2);
+            }
+
+            // Reset the number array for a new list of numbers
+            reset = function () {
+                valueArray = new Array();
+                displayArea.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

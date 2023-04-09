@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <title>jQuery Core</title>
+
+    <style>
+        .p1 {
+            color: blue;
+            font-family: 'Charmonman', cursive;
+        }
+
+        .p2 {
+            color: red;
+            font-family: 'Anton', sans-serif;
+        }
+
+        .p3 {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .span1 {
+            background-color: purple;
+        }
+
+        .span2 {
+            background-color: orange;
+        }
+
+        .span3 {
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--
+        Build a page containing:
+            15 paragraphs
+            3 h3s
+            12 spans
+        Use jQuery selectors to count a mix of these elements in the footer element.
+    -->
+    <div id="div1">
+        <h3>Header3, Number 1</h3>
+        <p class="p1" id="p1s1">This is paragraph class 1 and <span class="span1">span 1 in paragraph class 1</span>.</p>
+        <p class="p1" id="p1s2">This is paragraph class 1 and <span class="span2">span 2 in paragraph class 1</span>.</p>
+        <p class="p1" id="p1s3">This is paragraph class 1 and <span class="span3">span 3 in paragraph class 1</span>.</p>
+    </div>
+    <div id="div2">
+        <h3>Header3, Number 2</h3>
+        <p class="p2" id="p2s1">This is paragraph class 2 and <span class="span1">span 1 in paragraph class 2</span>.</p>
+        <p class="p2" id="p2s2">This is paragraph class 2 and <span class="span2">span 2 in paragraph class 2</span>.</p>
+        <p class="p2" id="p2s3">This is paragraph class 2 and <span class="span3">span 3 in paragraph class 2</span>.</p>
+    </div>
+    <div id="div3">
+        <h3>Header3, Number 3</h3>
+        <p class="p3" id="p3s1">This is paragraph class 3 and <span class="span1">span 1 in paragraph class 3</span>.</p>
+        <p class="p3" id="p3s2">This is paragraph class 3 and <span class="span2">span 2 in paragraph class 3</span>.</p>
+        <p class="p3" id="p3s3">This is paragraph class 3 and <span class="span3">span 3 in paragraph class 3</span>.</p>
+    </div>
+    <div id="div4">
+        <p>This is paragraph group 4 and </p><span>span 1 NOT IN paragraph group 4</span>.
+        <p>This is paragraph group 4 and </p><span>span 2 NOT IN paragraph group 4</span>.
+        <p>This is paragraph group 4 and </p><span>span 2 NOT IN paragraph group 4</span>.
+        <div id="div5">
+            <p>This is paragraph group 5.</p>
+            <p>This is paragraph group 5.</p>
+            <p>This is paragraph group 5.</p>
+        </div>
+    </div>
+    <hr />
+
+    <script>
+        window.onload = function () {
+            document.getElementById("elementH3Counter").innerHTML = "Header3s: " + $("h3").length;
+            document.getElementById("elementPCounter").innerHTML = "Paragraphs: " + $("p").length;
+            document.getElementById("elementP1Counter").innerHTML = "Paragraphs class p1: " + $(".p1").length;
+            document.getElementById("elementP2Counter").innerHTML = "Paragraphs class p2: " + $(".p2").length;
+            document.getElementById("elementP3Counter").innerHTML = "Paragraphs class p3: " + $(".p3").length;
+            document.getElementById("elementSpanCounter").innerHTML = "Spans: " + $("span").length;
+
+            document.getElementById("elementSpansInPs").innerHTML = "Span descendents of Paragraphs: " + $("p > span").length;
+            document.getElementById("spansAfterPs").innerHTML = "Spans FOLLOWING Paragraphs: " + $("p + span").length;
+            document.getElementById("divsInDivs").innerHTML = "Div descendents of divs: " + $("div > div").length;
+            document.getElementById("adjP2s").innerHTML = "Adjacent class P2s (after an h3): " + $("h3 ~ .p2").length;
+
+            document.getElementById("attributeCounter").innerHTML = "Spans with Class span3: " + $(".span3").length;
+            document.getElementById("idCounter").innerHTML = "Spans with ID CONTAINING s1: " + $("[id*='s1']").length;
+        }
+
+    </script>
+
+    <footer>
+        <ul>
+            <li id="elementH3Counter"></li>
+            <li id="elementPCounter"></li>
+            <li id="elementP1Counter"></li>
+            <li id="elementP2Counter"></li>
+            <li id="elementP3Counter"></li>
+            <li id="elementSpanCounter"></li>
+
+            <li id="elementSpansInPs"></li>
+            <li id="spansAfterPs"></li>
+            <li id="divsInDivs"></li>
+            <li id="adjP2s"></li>
+
+            <li id="attributeCounter"></li>
+            <li id="idCounter"></li>
+        </ul>
+    </footer>
+</body>
+
+</html>

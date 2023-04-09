@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <title>TypeScript StopWatch</title>
+
+    <style>
+        p {
+            text-align: center;
+            font-size: 200%;
+            width: 100%;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .center {
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div id="display">
+            <p>StopWatch</p>
+            <p>
+                <span id="displaytime">00:00.0</span>
+            </p>
+        </div>
+        <div>
+            <button id="start" onclick="startTimer()">START</button>
+            <button id="stop" onclick="stopTimer()">STOP</button>
+            <button id="reset" onclick="resetTimer()">RESET</button>
+        </div>
+    </div>
+
+    <script>
+
+        // Set document level variables outside of the control functions to expose them.
+        window.onload = function () {
+            let displayWindow = document.getElementById("displaytime");
+            let myTimer = 0;
+            let timeStart = 0;
+
+            // Initialize the display window.
+            // Enable the START window.
+            resetTimer = function () {
+                document.getElementById("start").removeAttribute('disabled');
+                displayWindow.innerHTML = "00:00.0";
+            }
+
+            /*
+             *  When the START button is clicked, start the timer.
+             *      Set the time interval to fire every 100 ms.
+             *      Disable the START and RESET buttons from being clicked accidentally.
+            */
+            startTimer = function () {
+                document.getElementById("start").setAttribute('disabled', 'disabled');
+                document.getElementById("reset").setAttribute('disabled', 'disabled');
+                timeStart = new Date();
+                myTimer = setInterval(updateTime, 100);
+            }
+
+            /*
+             * When the STOP button is clicked, stop the timer and enables the RESET button.
+             * The user MUST RESET before being able to click START again.
+             */
+            stopTimer = function () {
+                document.getElementById("reset").removeAttribute('disabled');
+                clearInterval(myTimer);
+            }
+
+            // The calculate the time elapsed between START and NOW.
+            updateTime = function () {
+
+                let timeNow = new Date();
+                let milliDiff = timeNow - timeStart;
+
+                let minutes = Math.floor(milliDiff / 60000);
+                let seconds = Math.floor(milliDiff / 1000);
+                let tenths = Math.floor(milliDiff / 100);
+
+                let minString = zeroPad(minutes);
+                let secString = zeroPad(seconds);
+
+                displayWindow.innerHTML = minString + ":" + secString + "." + tenths.toString().slice(-1);
+            }
+
+            // Add a leading zero to single digit values
+            function zeroPad(i) {
+                let iString = i.toString();
+                if (i < 10) { iString = "0" + iString; }
+                return (iString);
+            }
+        }
+    </script>
+</body>
+</html>
