@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Beer Map (blech)</title>
+    <style>
+        html {
+            background: linear-gradient(to bottom left, gold, white) no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+        }
+
+        input{
+            padding: 14px 20px;
+            border-radius: 8px;
+        }
+
+        .bottom{
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .search{
+            background-color: coral;
+            border: 1px solid chocolate;
+            color: darkred;
+            padding: 14px 20px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Beer Search</h1>
+    <p>Please enter the name of the beer or brewery of interest:</p>
+    <div><label>Beer/Brewery</label></div>
+
+    <!--Use javascript:void(0) to prevent page reloading on form submit.-->
+    <form action = "javascript:void(0);">
+        <div id="searchform">
+            <input type="text" id="searchterm" placeholder="beer!"/>
+            <button class="search" onclick = "searchFunction()">SEARCH</button>
+        </div>
+    </form>
+    <hr>
+    <div>
+        <ul id="displayList"></ul>
+    </div>
+    
+    <script>
+        var APIKEY = "27e9c92bef0701369b146d3c290a1eed";
+        function searchFunction(){
+            
+            // Clear previous results
+            $("#displayList").empty();
+            
+            // Extract the search term and execute the FETCH to get the data.
+            var term = $("#searchterm").val();
+            var URL = 'http://beermapping.com/webservice/locquery/'+APIKEY+'/'+term+"&s=json";
+
+            fetch(URL, {mode: "cors"})
+            .then(function(response){
+                if(response.ok != true){
+                    console.log("Something went wrong: ", response.status);
+                   return;
+                }
+                return response.json();
+            })
+
+            .then(function(newJson){
+                //Destructuring the JSON object arrays to elements
+                //Append the JSON data items to an unstructed list
+                myJsonArray = JSON.parse(JSON.stringify(newJson));
+                myJsonArray.forEach(function(element){
+                    var listNode = document.createElement('li');
+                    var nodeText = "ID: " + element.id + 
+                                        "</br>Name: " + element.name + 
+                                        "</br>Address: " + element.street + ", " + element.city + ", " + element.state + " " + element.zip +
+                                        "</br>URL: " + element.reviewlink;
+                    listNode.innerHTML = nodeText;
+                    $("#displayList").append(listNode);
+                });
+            })
+            .catch(function(err){
+                console.log("Fetch error:", err);
+            });
+        };
+    </script>
+    <div class = bottom><p>Data provided by http://beermapping.com.</p></div>
+</body>
+</html>

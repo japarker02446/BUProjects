@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>FlickrCats by FETCH!</title>
+
+    <style>
+
+        /* Use flexbox to arrange items in the display area
+            Wrap rows
+            Distribute rows with space between
+            Space items within rows evenly
+        */
+        .displayarea{
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div>Cats are still better, with flexbox!</div>
+    <div class = "displayarea"></div>
+    <script>
+        $(document).ready(function(){
+            $(function() {
+                $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?', 
+                            {tags: "cats, kittens, fluffy", tagmode: "all", format: "json", content_type: "1"},
+                            function(data){
+                                $.each(data.items, function(i, item){
+
+                                    // Change from the default medium size to smaller (q) size.
+                                    $("<img>").attr("src", item.media.m.replace("_m", "_q")).appendTo(".displayarea");
+                                });
+                            
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
